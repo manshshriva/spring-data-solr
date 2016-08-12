@@ -77,6 +77,7 @@ import org.springframework.data.solr.core.query.StatsOptions;
  * @author Andrey Paramonov
  * @author Philipp Jardas
  * @author Francisco Spaeth
+ * @author Petar Tahchiev
  */
 public class DefaultQueryParserTests {
 
@@ -887,7 +888,7 @@ public class DefaultQueryParserTests {
 
 		SimpleQuery query = new SimpleQuery(new SimpleStringCriteria("field_1:value_1"));
 		SolrQuery solrQuery = queryParser.constructSolrQuery(query);
-		assertEquals("/spell", solrQuery.get("qt"));
+		assertNull(solrQuery.get("qt"));
 	}
 
 	@Test
